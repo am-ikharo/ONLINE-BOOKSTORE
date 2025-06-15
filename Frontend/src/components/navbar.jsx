@@ -1,15 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link, Links } from 'react-router-dom'
 import { HiBars3CenterLeft } from "react-icons/hi2";
 import { IoSearchOutline } from "react-icons/io5";
 import { FaRegUser } from "react-icons/fa";
 import { FaRegHeart } from "react-icons/fa";
 import { BsCart3 } from "react-icons/bs";
-// import {avatarImg} from "../assets/avatar.png"
+
 
 
 const Navbar = () => {
-  const currentUser = true;
+  const currentUser = false;
+  const [isDropdownopen, setisDropdownopen] = useState(false)
 
   return (
     <header className='max-w-screen-2x1 mx-auto px-4 py-6'>
@@ -29,9 +30,9 @@ const Navbar = () => {
 
             {/* right side */}
             <div className='relative flex item-center md:space-x-3 space-x-2'>
-              <div className={'size-7 rounded'}>
+              <div className={'size-7 rounded-full % {currentUser ? "rinf-2 ring-blue-500'}>
                 {
-                  currentUser ? <><img src='' alt="user icon" /></> : <Link to='/login'><FaRegUser className='size-6'/></Link>
+                  currentUser ? <><button onClick={() => setisDropdownopen (open(!isDropdownopen))}><img src='' alt="user icon" /></button></> : <Link to='/'><FaRegUser className='size-6'/></Link>
                 }
                 
               </div>
